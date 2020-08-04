@@ -13,7 +13,7 @@ datos=[0.164 0.079 0.005;
    
 %promedio
 mean=[0.4882 0.4994 0.3561];
-%desviaci髇
+%desviaci贸n
 std=[0.26626558 0.28458011 0.19700937];
 %covarianza dtos sin normalizar
 %covsn= [0.078775 0.0775590 0.046353; 0.077559 0.089984 0.054693; 0.046353 0.054693 0.043125];
@@ -87,10 +87,10 @@ b_95 = sqrt((vec_diag(:,[2]))*nu95_nt);
 b_99 = sqrt((vec_diag(:,[2]))*nu99_nt);
 
 
-%parametrizaci髇 para 95%
+%parametrizaci贸n para 95%
 vector_x95=a_95*cos(vector);
 vector_y95=b_95*sin(vector);
-%parametrizaci髇 para 99%
+%parametrizaci贸n para 99%
 vector_x99=a_99*cos(vector);
 vector_y99=b_99*sin(vector);
 %graficar
@@ -99,9 +99,9 @@ hold on
 scatter(Y(:,1),Y(:,2))
 plot(vector_x95,vector_y95)
 plot(vector_x99,vector_y99)
-title("Test de Hotelling datos no est醤 en training set")
-xlabel("Proyecci髇 primera componente")
-ylabel("Proyecci髇 segunda componente")
+title("Test de Hotelling datos no est谩n en training set")
+xlabel("Proyecci贸n primera componente")
+ylabel("Proyecci贸n segunda componente")
 legend('PCA','umbral 95%','umbral 99%')
 
 a_95_t = sqrt((vec_diag(:,[1]))*nu95_t);
@@ -109,10 +109,10 @@ a_99_t = sqrt((vec_diag(:,[1]))*nu99_t);
 b_95_t = sqrt((vec_diag(:,[2]))*nu95_t);
 b_99_t = sqrt((vec_diag(:,[2]))*nu99_t);
 
-%parametrizaci髇 para 95%
+%parametrizaci贸n para 95%
 vector_x95_t=a_95_t*cos(vector);
 vector_y95_t=b_95_t*sin(vector);
-%parametrizaci髇 para 99%
+%parametrizaci贸n para 99%
 vector_x99_t=a_99_t*cos(vector);
 vector_y99_t=b_99_t*sin(vector);
 
@@ -121,7 +121,7 @@ hold on
 scatter(Y(:,1),Y(:,2))
 plot(vector_x95_t,vector_y95_t)
 plot(vector_x99_t,vector_y99_t)
-title("Test de Hotelling datos si est醤 en training set")
-xlabel("Proyecci髇 primera componente")
-ylabel("Proyecci髇 segunda componente")
+title("Test de Hotelling datos si est谩n en training set")
+xlabel("Proyecci贸n primera componente")
+ylabel("Proyecci贸n segunda componente")
 legend('PCA','umbral 95%','umbral 99%')
