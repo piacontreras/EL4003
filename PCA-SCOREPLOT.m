@@ -4,11 +4,11 @@
 xFill = fillmissing(X,'linear',2,'EndValues','nearest');
 %sacando el promedio de la matriz
 prom=mean(xFill);
-%desviaciÛn estandar de la matriz
+%desviaci√≥n estandar de la matriz
 desv=std(xFill);
 %normalizando los datos de la matriz
 norm=(xFill-prom)./desv;
-%matriz de varianza covarianza empÌrica
+%matriz de varianza covarianza emp√≠rica
 cov=((norm).'*(norm))/(205-1);
 %calculando vectores y valores propios
 [vectores, valores]=eig(cov);
@@ -16,9 +16,9 @@ cov=((norm).'*(norm))/(205-1);
 %asociados a los mayores valores propios
 x=vectores(:,[26]);
 y=vectores(:,[25]);
-%construcciÛn matriz ProyecciÛn
+%construcci√≥n matriz Proyecci√≥n
 P=[x y];
-%construcciÛn matriz Y
+%construcci√≥n matriz Y
 Y=norm*P;
 %obtenemos el eje de las abscisas y el eje de las ordenadas
 x1=Y(:,1);
@@ -33,14 +33,14 @@ ylabel('Componente asociada al segundo mayor valor propio')
 %P1-2
 %matriz diagonal con los dos mayores valores propios
 m_diag=[8.0970 0;0 4.3890];
-%recorriedo parametrizaciÛn
+%recorriedo parametrizaci√≥n
 vector=0:0.01:2*pi;
-%obteniendo forma cuadr·tica
+%obteniendo forma cuadr√°tica
 n=205;
 for i=1:1:n
    z(i,1)= norm(i,:)*P*inv(m_diag)*P'*norm(i,:)'; 
 end
-%para cada fila en el vector z habr· un valor distinto para a y para b, por
+%para cada fila en el vector z habr√° un valor distinto para a y para b, por
 %lo tanto en un ciclo se recorren un obtienen los valores para a y para b,
 %luego se parametriza la elipse y se grafica
 figure
@@ -78,10 +78,10 @@ a_99 = sqrt((vec_diag(:,[1]))*nu99_nt);
 b_95 = sqrt((vec_diag(:,[2]))*nu95_nt);
 b_99 = sqrt((vec_diag(:,[2]))*nu99_nt);
 
-%parametrizaciÛn para 95%
+%parametrizaci√≥n para 95%
 vector_x95=a_95*cos(vector);
 vector_y95=b_95*sin(vector);
-%parametrizaciÛn para 99%
+%parametrizaci√≥n para 99%
 vector_x99=a_99*cos(vector);
 vector_y99=b_99*sin(vector);
 %graficar
@@ -90,9 +90,9 @@ hold on
 scatter(x1,y1)
 plot(vector_x95,vector_y95)
 plot(vector_x99,vector_y99)
-title("Test de Hotelling datos no est·n en training set")
-xlabel("ProyecciÛn primera componente")
-ylabel("ProyecciÛn segunda componente")
+title("Test de Hotelling datos no est√°n en training set")
+xlabel("Proyecci√≥n primera componente")
+ylabel("Proyecci√≥n segunda componente")
 legend('PCA','umbral 95%','umbral 99%')
 
 a_95_t = sqrt((vec_diag(:,[1]))*nu95_t);
@@ -100,10 +100,10 @@ a_99_t = sqrt((vec_diag(:,[1]))*nu99_t);
 b_95_t = sqrt((vec_diag(:,[2]))*nu95_t);
 b_99_t = sqrt((vec_diag(:,[2]))*nu99_t);
 
-%parametrizaciÛn para 95%
+%parametrizaci√≥n para 95%
 vector_x95_t=a_95_t*cos(vector);
 vector_y95_t=b_95_t*sin(vector);
-%parametrizaciÛn para 99%
+%parametrizaci√≥n para 99%
 vector_x99_t=a_99_t*cos(vector);
 vector_y99_t=b_99_t*sin(vector);
 
@@ -112,7 +112,7 @@ hold on
 scatter(x1,y1)
 plot(vector_x95_t,vector_y95_t)
 plot(vector_x99_t,vector_y99_t)
-title("Test de Hotelling datos si est·n en training set")
-xlabel("ProyecciÛn primera componente")
-ylabel("ProyecciÛn segunda componente")
+title("Test de Hotelling datos si est√°n en training set")
+xlabel("Proyecci√≥n primera componente")
+ylabel("Proyecci√≥n segunda componente")
 legend('PCA','umbral 95%','umbral 99%')
